@@ -1,0 +1,90 @@
+<style type="text/css">
+	nav {
+		margin: 0; 
+		font: bold 16px 'Open Sans', arial, sans-serif; 
+	}
+	ul {
+		margin: auto 0;
+		
+		padding: 0;
+		list-style: none;		
+		display: table;
+		text-align: center; 
+
+	}
+	li {
+		display: table-cell; 
+		position: relative; 
+		padding: 10px 5px;
+	}
+	a {
+		color: #fff; 
+		text-decoration: none; 
+		letter-spacing: 0.12em; 
+		display: inline-block;
+		padding: 15px 20px;
+		position: relative;
+	}
+	a:after {
+		background: none repeat scroll 0 0 trasparent; 
+		bottom: 0; 
+		content: "";
+		display: block; 
+		height: 2px; 
+		left: 50%; 
+		position: absolute; 
+		background: #fff; 
+		transition: width 0.3s ease 0s, left 0.3s ease 0s;
+		width: 0;
+	}
+	a:hover:after {
+		width: 100%; 
+		left: 0; 
+	}
+	@media screen and(max-height: 300px) {
+		ul {
+			margin-top: 40px; 
+		}
+	}
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-inverse navbar-dark bg-secondary mb-4">
+	<div class="container">
+
+		<!--Navbar Title-->
+		<a href="/" class="navbar-brand ">Online Judge</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" 
+			data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!--Navbar Menu-->
+		 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="nav navbar-nav mr-auto">
+		      <li class="nav-item">
+		        <a class="nav-link" href="/">Docs </a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Problems</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link " href="#">Submissions</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link " href="#">Contests</a>
+		      </li>
+		      
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li class="nav-item">
+		      	<a href="#" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up</a>
+		      </li>
+		      <li class="nav-item">
+		      	<a href="#" class="nav-link"><span class="fas fa-sign-in-alt"></span> Login</a>
+		      </li>
+		    </ul>
+		</div>
+
+	</div>
+</nav>
