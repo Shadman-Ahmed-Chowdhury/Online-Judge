@@ -68,7 +68,7 @@
 		}
 
 		#messages{
-			background-color: grey;
+			background-color: blue;
 			color: #fff;
 			padding: 10px;
 			margin-top: 10px;
@@ -87,6 +87,7 @@
 				</div>
 				<div class="d-flex justify-content-center form_container">
 					<form method="POST" action="">
+						{% csrf_token %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -106,6 +107,10 @@
 					</form>
 
 				</div>
+
+				{% for message in messages %}
+					<p id="messages">{{ message }}</p>
+				{% endfor %}
 		
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
