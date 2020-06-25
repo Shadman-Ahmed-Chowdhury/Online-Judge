@@ -1,9 +1,36 @@
 {% extends "base.html" %}
 
+<!--
+Blog Home Page-->
 {% block content %}
-	<h1 class="text-center mt-3">
-		Welcome to an Open Source Blog
-	</h1>
-	
+
+	<style>
+		body {
+			background: #ededed;
+		}
+		.card {
+			margin-bottom: 20px;
+		}
+		.card-link {
+			color: blue;
+			margin-left: -20px;
+		}
+		.card-text { 
+			margin-bottom: 0px;
+		}
+
+	</style>
+	<div class="container">
+		{% for post in posts %}
+			<div class="card" style="width: 80%;">
+			  <div class="card-body">
+			    <h4 class="card-title">  {{post.title }} </h4>
+			    <h6 class="card-subtitle mb-2 text-muted"> by {{ post.author }}, {{ post.date_posted|date:"F d, Y"}}</h6>
+			    <p class="card-text">{{ post.content|truncatechars:255 }}</p>
+			    <a href="#" class="card-link ">Continue Reading</a>
+			  </div>
+			</div>			
+		{% endfor %}
+	</div>
+		
 {% endblock content %}
-	
