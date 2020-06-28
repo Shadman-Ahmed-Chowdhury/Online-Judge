@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<style type="text/css">
+		body {
+			background: #ededed;
+		}
+		.card {
+			margin-left: 40px;
+		}
+		.img-center {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+
+		  
+		}
+		.jumbotron {
+			background: #fff;
+			margin-left: -50px;
+			margin-right: 40px;
+		}
+		.jumbotron h2 { 
+			margin-top: -50px;
+		}
+		.col-md-8 .card-body {
+			margin-left: -50px;
+		}
+	</style>
+	
+
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card" style="width: 18rem;">
+			  <div class="card-body">
+			    
+				<img src="{{ user.profile.image.url }}" class="rounded-circle img-center" width="150" height="150">
+				<h2 align="center"> {{ user.username }} </h2>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="jumbotron">
+				<h2>Submissions</h2>
+				
+			</div>
+			<div class="jumbotron">
+				<h2>Created Problems</h2>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+

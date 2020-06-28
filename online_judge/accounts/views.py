@@ -45,5 +45,11 @@ def logoutUser(request):
 	logout(request)
 	return redirect('accounts:login')
 
+
+@login_required
+def profile(request):
+	return render(request, 'accounts/profile.html')
+	
+
 def index(request): 
 	return render(request, 'accounts/index.html')

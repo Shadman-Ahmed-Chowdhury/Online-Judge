@@ -15,14 +15,14 @@
 	li {
 		display: table-cell; 
 		position: relative; 
-		padding: 10px 5px;
+		padding: 2.5px 2px;
 	}
 	a {
 		color: #fff; 
 		text-decoration: none; 
 		letter-spacing: 0.12em; 
 		display: inline-block;
-		padding: 15px 20px;
+		padding: 10px 20px;
 		position: relative;
 	}
 	a:after {
@@ -79,7 +79,7 @@
 		    {% if user.is_authenticated %}
 		    	<ul class="nav navbar-nav navbar-right">
 			      <li class="nav-item">
-			      	<a href="#" class="nav-link">
+			      	<a href="{% url 'accounts:profile' %}" class="nav-link">
 			      		Hello, {{request.user}}
 			      	</a>
 			      </li>
