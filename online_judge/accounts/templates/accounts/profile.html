@@ -8,7 +8,10 @@
 		.card {
 			margin-left: 40px;
 		}
-		.img-center {
+		h2 {
+			margin-top: 30px;
+		}
+		.center {
 		  display: block;
 		  margin-left: auto;
 		  margin-right: auto;
@@ -35,8 +38,15 @@
 			<div class="card" style="width: 18rem;">
 			  <div class="card-body">
 			    
-				<img src="{{ user.profile.image.url }}" class="rounded-circle img-center" width="150" height="150">
+				<img src="{{ user.profile.image.url }}" class="rounded-circle center" width="150" height="150">
 				<h2 align="center"> {{ user.username }} </h2>
+				{% if request.user.profile %}
+					<a href="{% url 'accounts:profile_update' %}" class="btn btn-outline-primary center">Update Profile</a>
+				{% else %}
+					<a href="#" class="btn btn-outline-primary center">Create Profile</a>
+				{% endif %}
+				
+
 			  </div>
 			</div>
 		</div>

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<style type="text/css">
+		body {
+			background: #ededed;
+		}
+		.image a { 
+			color: blue!important;
+			font-family: sans-serif;
+		}
+		.card {
+			margin-left: 40px; 
+			margin-right: 40px;
+		}
+		.card-body {
+			margin-left: auto; 
+			margin-right: auto;
+		}
+		.card-title {
+			margin-bottom: 20px;
+		}
+	</style>
+
+	<div class="card" style="width: 54rem;">
+		<div class="card-body">
+
+			<form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				<h2 class="card-title">Update Profile Info</h2>
+				<div class="input-group mb-3">
+					<div class="input-group-append">
+						Username  : 
+						<span class="input-group-text"><i class="fas fa-user"></i></span>
+					</div>
+					{{user_update_form.username}}
+				</div>
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						Email  :
+						<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+					</div>
+					{{user_update_form.email}}
+				</div>
+				<div class="input-group mb-2 image">
+					{{ profile_update_form.as_p}}			
+				</div>
+				<input type="submit" class="btn btn-info">
+			</form>
+		</div>
+	</div>
+{% endblock content %}
