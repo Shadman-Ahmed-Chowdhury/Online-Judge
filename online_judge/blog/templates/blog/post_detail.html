@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+<!--
+Blog Home Page-->
+{% block content %}
+
+	<style>
+		body {
+			background: #ededed;
+		}
+		.card {
+			margin-bottom: 20px;
+		}
+		.card-link {
+			color: blue;
+			margin-left: -20px;
+		}
+		.card-text { 
+			margin-bottom: 0px;
+		}
+
+	</style>
+	<div class="container">
+		
+		<div class="card" style="width: 80%;">
+		  <div class="card-body">
+		    <h4 class="card-title">  {{object.title }} </h4>
+		    <h6 class="card-subtitle mb-2 text-muted"> by {{ object.author }}, {{ object.date_posted|date:"F d, Y"}}</h6>
+		    <p class="card-text">{{ object.content|safe }}</p>
+		  </div>
+		</div>			
+	
+	</div>
+		
+{% endblock content %}

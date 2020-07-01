@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+	
+	<style type="text/css">
+		body {
+			background: #ededed;
+		}
+		.image a { 
+			color: blue!important;
+			font-family: sans-serif;
+		}
+		.card {
+			margin-left: 40px; 
+			margin-right: 40px;
+		}
+		.card-body {
+			margin-left: auto; 
+			margin-right: auto;
+		}
+		.card-title {
+			margin-bottom: 20px;
+		}
+	</style>
+
+	<div class="card" style="width: 54rem;">
+		<div class="card-body">
+			<form method="post">
+				{% csrf_token %}
+				{{form.media}}
+			    {{form|crispy}}
+			    <button type="submit" class="btn btn-info">Post</button>
+			</form>
+
+			
+		</div>
+	</div>
+	
+{% endblock content %}

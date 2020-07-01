@@ -18,16 +18,20 @@ Blog Home Page-->
 		.card-text { 
 			margin-bottom: 0px;
 		}
-
+		h4 a {
+			color: black!important;
+			margin-left: -20px;
+			letter-spacing: 0;
+		}
 	</style>
 	<div class="container">
 		{% for post in posts %}
 			<div class="card" style="width: 80%;">
 			  <div class="card-body">
-			    <h4 class="card-title">  {{post.title }} </h4>
+			    <h4 class="card-title"> <a href="{% url 'post-detail' post.id %}"> {{post.title }} </a></h4>
 			    <h6 class="card-subtitle mb-2 text-muted"> by {{ post.author }}, {{ post.date_posted|date:"F d, Y"}}</h6>
-			    <p class="card-text">{{ post.content|truncatechars:255 }}</p>
-			    <a href="#" class="card-link ">Continue Reading</a>
+			    <p class="card-text">{{ post.content|safe|truncatechars:255 }}</p>
+			    <a href="{% url 'post-detail' post.id %}" class="card-link ">Continue Reading</a>
 			  </div>
 			</div>			
 		{% endfor %}
