@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% block content %}
 	
 	<style type="text/css">
@@ -21,19 +20,24 @@
 		.card-title {
 			margin-bottom: 20px;
 		}
+		.btn-secondary {
+			letter-spacing: 0px; 
+		}
+		.btn-secondary:hover {
+			text-decoration: none;
+		}
 	</style>
 
 	<div class="card" style="width: 70rem;">
 		<div class="card-body">
-			<div class="card-title">
-				<h3>New Blog Post </h3>
-			</div>
+			
 			<form method="post">
 				{% csrf_token %}
-				{{form.media}}
-			    {{form|crispy}}
+				<h1>Delete Post</h1>
+				<h2>Are you sure you want to delete the post "{{ object.title }}"?</h2>
 			    <br>
-			    <button type="submit" class="btn btn-info">Post</button>
+			    <button type="submit" class="btn btn-danger">Delete</button>
+			    <a href="{% url 'post-detail' object.id %}" class="btn btn-secondary">Cancel</a>
 			</form>
 
 			
