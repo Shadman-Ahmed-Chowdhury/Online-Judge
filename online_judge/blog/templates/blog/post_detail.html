@@ -25,14 +25,20 @@ Blog Home Page-->
 		<div class="card" style="width: 80%;">
 		  <div class="card-body">
 		    <h4 class="card-title">  {{object.title }} </h4>
-		    <h6 class="card-subtitle mb-2 text-muted"> by {{ object.author }}, {{ object.date_posted|date:"F d, Y"}}</h6>
+		    <h6 class="card-subtitle mb-2 text-muted"> Posted by 
+		    	<a href="{% url 'user-posts' object.author.username %}" class="btn btn-sm btn-secondary py-0" style="font-size: 0.8em;">
+					{{object.author}}
+				</a>| Posted on {{ object.date_posted|date:"F d, Y"}}
+			</h6>
+		    <br>
 		    <p class="card-text">{{ object.content|safe }}</p>
 
 		    {% if object.author == user %}
 		    	<a href="{% url 'post-update' object.id %}" class="btn btn-outline-info">
 		    		Update
 		    	</a>
-		    	<a href="{% url 'post-delete' object.id %}" class="btn btn-outline-danger">			Delete
+		    	<a href="{%url 'post-delete' object.id%}" class="btn btn-outline-danger">
+		    		Delete
 		    	</a>
 		    {% endif %}
 		  </div>

@@ -32,6 +32,9 @@ Blog Home Page-->
 		.btn-primary:hover {
 			text-decoration: none;
 		}
+		.btn-secondary {
+			min-height: 5px;
+		}
 	</style>
 	<div class="container">
 		<h1>Blog</h1>
@@ -46,12 +49,56 @@ Blog Home Page-->
 			<div class="card" style="width: 80%;">
 			  <div class="card-body">
 			    <h4 class="card-title"> <a href="{% url 'post-detail' post.id %}"> {{post.title }} </a></h4>
-			    <h6 class="card-subtitle mb-2 text-muted"> by {{ post.author }}, {{ post.date_posted|date:"F d, Y"}}</h6>
+			    <h6 class="card-subtitle mb-2 text-muted"> Posted by 
+				    <a href="{% url 'user-posts' post.author.username %}" class="btn btn-sm btn-secondary py-0" style="font-size: 0.8em;">
+					    	{{ post.author }}
+					</a>
+				    | Posted on <button class="btn btn-sm btn-secondary py-0" style="font-size: 0.8em;">{{ post.date_posted|date:"F d, Y"}}</button>
+				</h6>
+			    <br>
 			    <p class="card-text">{{ post.content|safe|truncatechars:255 }}</p>
 			    <a href="{% url 'post-detail' post.id %}" class="card-link ">Continue Reading</a>
 			  </div>
 			</div>			
 		{% endfor %}
+
+		<div class="text-center">
+			{% if is_paginated %}
+
+			{% if page_obj.has_previous %}
+				<a href="?page=1" class="btn btn-sm btn-outline-info mb-4">
+					First
+				</a>
+				<a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-info mb-4">
+					<<
+				</a>
+
+			{% endif %}
+
+			{% for num in page_obj.paginator.page_range  %}
+				{% if page_obj.number == num %}
+					<a href="?page={{ num }}" class="btn btn-sm btn-info mb-4">
+						{{ num }}
+					</a>
+				{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+					<a href="?page={{ num }}" class="btn btn-sm btn-outline-info mb-4">
+						{{ num }}
+					</a>
+				{% endif %}
+			{% endfor %}
+
+			{% if page_obj.has_next %}
+				<a href="?page={{ page_obj.next_page_number}}" class="btn btn-sm  btn-outline-info mb-4">
+					>>
+				</a>
+				<a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-info mb-4">
+					Last
+				</a>
+
+			{% endif %}
+
+		{% endif %}
+		</div>
 	</div>
 		
 {% endblock content %}
