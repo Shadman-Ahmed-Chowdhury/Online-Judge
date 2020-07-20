@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+<!--
+Blog Home Page-->
+{% block content %}
+
+	<style>
+		body {
+			background: #ededed;
+		}
+		.card {
+			margin-bottom: 20px;
+		}
+		.card-link {
+			color: blue;
+			margin-left: -20px;
+		}
+		.card-text { 
+			margin-bottom: 0px;
+		}
+
+	</style>
+	<div class="container">
+		
+		<div class="card" style="width: 80%;">
+		  <div class="card-body">
+		    <h4 class="card-title">  {{object.title }} </h4>
+		    <h6 class="card-subtitle mb-2 text-muted"> Created by 
+		    	<a href="#" class="btn btn-sm btn-secondary py-0" style="font-size: 0.8em;">
+					{{object.author}}
+				</a>| Posted on {{ object.created_date|date:"F d, Y"}}
+			</h6>
+		    <br>
+		    <p class="card-text">{{ object.description|safe }}</p>
+
+		    {% if object.author == user %}
+		    	<a href="#" class="btn btn-outline-info">
+		    		Update
+		    	</a>
+		    	<a href="#" class="btn btn-outline-danger">
+		    		Delete
+		    	</a>
+		    {% endif %}
+		  </div>
+		</div>			
+	
+	</div>
+		
+{% endblock content %}

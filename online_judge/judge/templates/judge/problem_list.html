@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<style>
+		body {
+			background: #ededed;
+		}
+		.card {
+			margin-bottom: 20px;
+		}
+		.card-link {
+			color: blue;
+			
+		}
+		.card-text { 
+			margin-bottom: 0px;
+		}
+		td a {
+			color: black!important;
+			
+			letter-spacing: 0;
+		}
+		td a:hover {
+			color: blue!important;
+			text-decoration: none;
+			font-size: 17px;
+		}
+		.text-center a {
+			margin-bottom: 20px;
+		}
+		.btn-primary {
+			letter-spacing: 0px;
+		}
+		.btn-primary:hover {
+			text-decoration: none;
+		}
+		.btn-secondary {
+			min-height: 5px;
+		}
+		.table {
+			width: 80%;
+		}
+	</style>
+	<div class="container">
+		<h1>Problem List</h1>
+		<hr>
+	
+		
+		<a class="btn btn-primary text-center" href="{% url 'judge:problem-create' %}">
+			Create a new Problem
+		</a>
+		<table class="table table-hover">
+		  	<thead>
+		   		<tr> 
+			      	<th scope="col">Problem</th>
+			      	<th scope="col">Types</th>
+			      	<th scope="col">Creation Date</th>
+			    </tr>
+			</thead>
+		  	<tbody>
+		  		{% for problem in problems %}
+		  			<tr>
+		  				<td><a href="{% url 'judge:problem-detail' problem.code %}">{{ problem.title }} </a></td>
+				    	<td>{{ problem.types }}</td>
+				    	<td>{{ problem.created_date|date:"F d, Y"}}</td>
+		  			</tr>
+		  		{% endfor %}    
+		  	</tbody>
+		</table>
+	</div>	
+
+
+	
+{% endblock content %}
+

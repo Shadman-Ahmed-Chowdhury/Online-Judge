@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<style type="text/css">
+		body {
+			background: #ededed;
+		}
+		.image a { 
+			color: blue!important;
+			font-family: sans-serif;
+		}
+		.card {
+			margin-left: 40px; 
+			margin-right: 40px;
+		}
+		.card-body {
+			margin-left: auto; 
+			margin-right: auto;
+		}
+		.card-title {
+			margin-bottom: 20px;
+		}
+	</style>
+
+	<div class="card" style="width: 70rem;">
+		<div class="card-body">
+			<div class="card-title">
+				<h3>New Problem </h3>
+			</div>
+			<form method="post">
+				{% csrf_token %}
+				{{form.media}}
+			    {{form|crispy}}
+			    <br>
+			    <button type="submit" class="btn btn-info">Add Problem</button>
+			</form>
+
+			
+		</div>
+	</div>
+	
+{% endblock content %}
