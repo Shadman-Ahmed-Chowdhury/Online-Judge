@@ -8,6 +8,6 @@ urlpatterns = [
 	path("", views.index, name='index'),
 	path('problems/', ProblemListView.as_view(), name='problems-list'),
 	path('problem/new/', ProblemCreateView.as_view(), name='problem-create'), 
-	path('problem/<code>/', ProblemDetailView.as_view(), name='problem-detail'),
+	path('problem/<int:pk>/<code>/', ProblemDetailView.as_view(), name='problem-detail'),
 	
 ]

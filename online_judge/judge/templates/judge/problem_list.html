@@ -47,7 +47,7 @@
 	
 		
 		<a class="btn btn-primary text-center" href="{% url 'judge:problem-create' %}">
-			Create a new Problem
+			Add a new Problem
 		</a>
 		<table class="table table-hover">
 		  	<thead>
@@ -55,14 +55,16 @@
 			      	<th scope="col">Problem</th>
 			      	<th scope="col">Types</th>
 			      	<th scope="col">Creation Date</th>
+			      	<th scope="col">Problem Setter</th>
 			    </tr>
 			</thead>
 		  	<tbody>
 		  		{% for problem in problems %}
 		  			<tr>
-		  				<td><a href="{% url 'judge:problem-detail' problem.code %}">{{ problem.title }} </a></td>
+		  				<td><a href="{% url 'judge:problem-detail' problem.id problem.code %}">{{ problem.title }} </a></td>
 				    	<td>{{ problem.types }}</td>
 				    	<td>{{ problem.created_date|date:"F d, Y"}}</td>
+				    	<td>{{ problem.author }}</td>
 		  			</tr>
 		  		{% endfor %}    
 		  	</tbody>

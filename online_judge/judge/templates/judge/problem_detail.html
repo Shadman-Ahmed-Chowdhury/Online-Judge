@@ -18,31 +18,88 @@ Blog Home Page-->
 		.card-text { 
 			margin-bottom: 0px;
 		}
+		.jumbotron  {
+			height: 50px;
+		}
+		.jumbo {
+			width: 100%;
+			background-color:#e2e1e6; 
+			padding: 20px 20px 6px 20px;
+		}
+
 
 	</style>
 	<div class="container">
+		<div class="row">
 		
-		<div class="card" style="width: 80%;">
-		  <div class="card-body">
-		    <h4 class="card-title">  {{object.title }} </h4>
-		    <h6 class="card-subtitle mb-2 text-muted"> Created by 
-		    	<a href="#" class="btn btn-sm btn-secondary py-0" style="font-size: 0.8em;">
-					{{object.author}}
-				</a>| Posted on {{ object.created_date|date:"F d, Y"}}
-			</h6>
-		    <br>
-		    <p class="card-text">{{ object.description|safe }}</p>
+			<div class="col-md-9">
+				<div class="card" style="width: 100%;">
+					<div class="card-body">
+					    <h2 class="card-title text-center">  {{object.title }} </h2>
+					    <hr>
+					    <br>
+					    <p class="card-text">{{ object.description|safe }}</p>
 
-		    {% if object.author == user %}
-		    	<a href="#" class="btn btn-outline-info">
-		    		Update
-		    	</a>
-		    	<a href="#" class="btn btn-outline-danger">
-		    		Delete
-		    	</a>
-		    {% endif %}
-		  </div>
-		</div>			
+					    <h4>Input Format</h4>
+					    <p class="card-text">{{ object.input_format|safe }}</p>
+					    <h4>Constraints</h4>
+					    <p class="card-text">{{ object.constraints|safe }}</p>
+					    <h4>Output Format</h4>
+					    <p class="card-text">{{ object.output_format|safe }}</p>
+					    <h4>Sample Input 1</h4>
+					    <div class="jumbo">
+					    	{{ object.sample_input1|safe }}
+					    </div>
+					    <br>
+					    <h4>Sample Output 1</h4>
+					    <div class="jumbo">
+					    	{{ object.sample_output1|safe }}
+					    </div>
+					    <br>
+					    <h4>Sample Input 2</h4>
+					    <div class="jumbo">
+					    	{{ object.sample_input2|safe }}
+					    </div>
+					    <br>
+					    <h4>Sample Output 2</h4>
+					    <div class="jumbo">
+					    	{{ object.sample_output2|safe }}
+					    </div>
+					    <br>
+					    
+
+					    {% if object.author == user %}
+					    	<a href="#" class="btn btn-outline-info">
+					    		Update
+					    	</a>
+					    	<a href="#" class="btn btn-outline-danger">
+					    		Delete
+					    	</a>
+					    {% endif %}
+					  </div>
+				    </div>	
+				</div>
+			<div class="col-md-3">
+				<a href="#" class="btn btn-primary btn-block">Submit Solution</a>
+				<br>
+
+				<ul class="list-group">
+					<li class="list-group-item">Added by: {{ object.author }}</li>
+					<li class="list-group-item">Types: {{ object.types }}</li>
+					<li class="list-group-item">Difficulty: {{ object.difficulty }}</li>
+				    <li class="list-group-item">Time Limit: </li>
+			   	    <li class="list-group-item">Memory Limit: </li>
+
+					
+				</ul>
+				<hr>
+
+				<a href="#" class="btn btn-outline-dark btn-block">All Submissions</a>
+				<a href="#" class="btn btn-outline-dark btn-block">Editorial</a>
+								
+			</div>
+
+		</div>		
 	
 	</div>
 		
