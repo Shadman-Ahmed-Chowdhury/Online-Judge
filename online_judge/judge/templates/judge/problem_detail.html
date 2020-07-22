@@ -69,10 +69,10 @@ Blog Home Page-->
 					    
 
 					    {% if object.author == user %}
-					    	<a href="#" class="btn btn-outline-info">
+					    	<a href="{% url 'judge:problem-update' object.id %}" class="btn btn-outline-info">
 					    		Update
 					    	</a>
-					    	<a href="#" class="btn btn-outline-danger">
+					    	<a href="{% url 'judge:problem-delete' object.id %}" class="btn btn-outline-danger">
 					    		Delete
 					    	</a>
 					    {% endif %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+	
+	<style type="text/css">
+		body {
+			background: #ededed;
+		}
+		.image a { 
+			color: blue!important;
+			font-family: sans-serif;
+		}
+		.card {
+			margin-left: 40px; 
+			margin-right: 40px;
+		}
+		.card-body {
+			margin-left: auto; 
+			margin-right: auto;
+		}
+		.card-title {
+			margin-bottom: 20px;
+		}
+		.btn-secondary {
+			letter-spacing: 0px; 
+		}
+		.btn-secondary:hover {
+			text-decoration: none;
+		}
+	</style>
+
+	<div class="card" style="width: 70rem;">
+		<div class="card-body">
+			
+			<form method="post">
+				{% csrf_token %}
+				<h1>Delete Post</h1>
+				<h2>Are you sure you want to delete the problem "{{ object.title }}"?</h2>
+			    <br>
+			    <button type="submit" class="btn btn-danger">Delete</button>
+			    <a href="{% url 'judge:problem-detail' object.id object.code%}" class="btn btn-secondary">Cancel</a>
+			</form>
+
+			
+		</div>
+	</div>
+	
+{% endblock content %}
