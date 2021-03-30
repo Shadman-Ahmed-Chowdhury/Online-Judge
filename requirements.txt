@@ -20,7 +20,7 @@ cupshelpers==1.0
 Cython==0.29.19
 distlib==0.3.0
 distro==1.5.0
-Django==3.0.6
+Django==3.0.12
 django-ckeditor==5.9.0
 django-crispy-forms==1.9.1
 django-js-asset==1.2.2
