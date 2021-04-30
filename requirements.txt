@@ -81,7 +81,7 @@ ranger-fm==1.9.3
 reportlab==3.5.42
 requests==2.23.0
 retrying==1.3.3
-rsa==4.0
+rsa==4.7
 setproctitle==1.1.10
 sip==4.19.22
 six==1.15.0
